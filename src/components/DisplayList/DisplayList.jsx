@@ -8,8 +8,15 @@ import Avatar from '@mui/material/Avatar';
 import Typography from '@mui/material/Typography';
 import Paper from '@mui/material/Paper';
 import BottomBar from '../BottomBar/BottomBar';
+import { useSelector } from 'react-redux'
 
 function DisplayList() {
+    const exercise = useSelector(store => store.exercise)
+    console.log ('exercise in List', exercise)
+
+    //Probably need to bring in array of objects and then map through instead of hard
+    //coding like currently
+
   return (
     <Paper variant='outlined' sx={{ maxWidth: 390, maxHeight: 844}} >
         <List sx={{ width: '100%', bgcolor: 'background.paper' }}>
@@ -27,7 +34,7 @@ function DisplayList() {
                     variant="body2"
                     color="text.primary"
                 >
-                    TEXT
+                    
                 </Typography>
                 {"TIME"}
                 </React.Fragment>

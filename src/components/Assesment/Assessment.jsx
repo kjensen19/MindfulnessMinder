@@ -26,7 +26,7 @@ export default function Assessment() {
     const handleSubmit = () => {
         console.log(newRating)
         dispatch({
-            type: 'SET_RATING',
+            type: 'POST_RATING',
             payload: newRating
         })
         setNewRating(ratingBase)

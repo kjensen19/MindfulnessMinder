@@ -11,6 +11,10 @@ import DialogTitle from '@mui/material/DialogTitle';
 function RegisterForm() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [phone, setPhone] = useState('');
+  const [contact, setContact] = useState('');
   const errors = useSelector((store) => store.errors);
   const dispatch = useDispatch();
   const [open, setOpen] = React.useState(false);
@@ -24,6 +28,7 @@ function RegisterForm() {
   };
 
   const registerUser = (event) => {
+    console.log('HERE?')
     event.preventDefault();
 
     dispatch({
@@ -31,6 +36,10 @@ function RegisterForm() {
       payload: {
         username: username,
         password: password,
+        name: name,
+        email: email,
+        phone: phone,
+        contact: contact
       },
     });
   }; // end registerUser
@@ -75,6 +84,56 @@ function RegisterForm() {
             </label>
           </div>
           <div>
+            <label htmlFor="name">
+              First and Last Name:
+            <input
+              type="text"
+              name="name"
+              value={name}
+              required
+              onChange={(event) => setName(event.target.value)}
+            />
+            </label>
+          </div>
+          <div>
+            <label htmlFor="email">
+              Email Address:
+            <input
+              type="email"
+              name="email"
+              value={email}
+              required
+              onChange={(event) => setEmail(event.target.value)}
+            />
+            </label>
+          </div>
+          <div>
+            <label htmlFor="phone">
+              Phone Number:
+            <input
+              type="tel"
+              name="phone"
+              value={phone}
+              pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}"
+              required
+              onChange={(event) => setPhone(event.target.value)}
+            />
+            </label>
+          </div>
+          <div>
+            <label htmlFor="contact">
+              Is it okay to contact you?
+            <input
+              type="text"
+              name="contact"
+              value={contact}
+              required
+              onChange={(event) => setContact(event.target.value)}
+            />
+            </label>
+          </div>
+          <div>
+            <input type='reset'/>
             <input className="btn" type="submit" name="submit" value="Register" />
           </div>
         </form>
