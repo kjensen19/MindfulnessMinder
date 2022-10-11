@@ -39,7 +39,7 @@ export default function Assessment() {
                 variant="body2"
                 color="text.primary"
               >
-                Ali Connors
+                How are you feeling physically?
               </Typography>
               <Rating
                 name='physical'
@@ -50,14 +50,11 @@ export default function Assessment() {
           }
         />
         <ListItemAvatar>
-          <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
+          <Avatar alt={newRating.physical.toString()} src="/static/images/avatar/1.jpg" />
         </ListItemAvatar>
       </ListItem>
       <Divider variant="inset" component="li" />
       <ListItem alignItems="flex-start">
-        <ListItemAvatar>
-          <Avatar alt="Travis Howard" src="/static/images/avatar/2.jpg" />
-        </ListItemAvatar>
         <ListItemText
           primary="Emotional?"
           secondary={
@@ -68,22 +65,22 @@ export default function Assessment() {
                 variant="body2"
                 color="text.primary"
               >
-                to Scott, Alex, Jennifer
+                How are you feeling emotionally?
               </Typography>
-            </React.Fragment>
-          }
-        />
-           <Rating
+              <Rating
                 name='emotional'
                 value={newRating.emotional}
                 onChange={handleChange}
                 />
+            </React.Fragment>
+          }
+        />
+        <ListItemAvatar>
+          <Avatar alt={newRating.emotional.toString()} src="/static/images/avatar/2.jpg" />
+        </ListItemAvatar>
       </ListItem>
       <Divider variant="inset" component="li" />
       <ListItem alignItems="flex-start">
-        <ListItemAvatar>
-          <Avatar alt="Cindy Baker" src="/static/images/avatar/3.jpg" />
-        </ListItemAvatar>
         <ListItemText
           primary="Mental"
           secondary={
@@ -94,22 +91,22 @@ export default function Assessment() {
                 variant="body2"
                 color="text.primary"
               >
-                Sandra Adams
+                How are you feeling mentally?
               </Typography>
-            </React.Fragment>
-          }
-        />
-            <Rating
+              <Rating
                 name='mental'
                 value={newRating.mental}
                 onChange={handleChange}
                 />
+            </React.Fragment>
+          }
+        />
+        <ListItemAvatar>
+          <Avatar alt={newRating.mental.toString()} src="/static/images/avatar/3.jpg" />
+        </ListItemAvatar>
       </ListItem>
       <Divider variant="inset" component="li" />
       <ListItem alignItems="flex-start">
-        <ListItemAvatar>
-          <Avatar alt="Cindy Baker" src="/static/images/avatar/3.jpg" />
-        </ListItemAvatar>
         <ListItemText
           primary="PsychoSocial"
           secondary={
@@ -120,16 +117,19 @@ export default function Assessment() {
                 variant="body2"
                 color="text.primary"
               >
-                Sandra Adams
+                How are you feeling psychosocially?
               </Typography>
-            </React.Fragment>
-          }
-        />
-            <Rating
+              <Rating
                 name='psychosocial'
                 value={newRating.psychosocial}
                 onChange={handleChange}
                 />
+            </React.Fragment>
+          }
+        />
+        <ListItemAvatar>
+          <Avatar alt={newRating.psychosocial.toString()} src="/static/images/avatar/3.jpg" />
+        </ListItemAvatar>
       </ListItem>
       <button type='submit' onClick={handleSubmit}>Submit</button>
     </List>
