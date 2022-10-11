@@ -20,6 +20,8 @@ import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 import HeaderMenu from '../HeaderMenu/HeaderMenu';
+import BottomBar from '../BottomBar/BottomBar';
+import Assessment from '../Assesment/Assessment';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 
@@ -27,25 +29,27 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import './App.css';
 const themeOptions = createTheme( {
   palette: {
-    type: 'light',
+    type: 'dark',
     primary: {
-      main: '#006064',
+      main: '#ce93d8',
+      contrastText: '#252425',
     },
     secondary: {
-      main: '#f56a00',
+      main: '#2187bb',
     },
     background: {
       default: '#ba68c8',
-      paper: '#9dffaf',
+      paper: '#6200ea',
     },
     text: {
-      primary: '#ff9100',
-      secondary: '#303030',
+      primary: '#fff3e0',
+      secondary: '#757575',
       hint: '#ffebee',
       disabled: '#ffebee',
     },
     info: {
       main: '#9dffaf',
+      contrastText: 'rgba(10,10,10,0.87)',
     },
     divider: '#ffffff',
   },
@@ -90,7 +94,7 @@ function App() {
               exact
               path="/user"
             >
-              <UserPage />
+              <Assessment />
             </ProtectedRoute>
 
             <ProtectedRoute
@@ -148,7 +152,7 @@ function App() {
               <h1>404</h1>
             </Route>
           </Switch>
-          <Footer />
+          <BottomBar />
         </div>
       </ThemeProvider>
     </Router>

@@ -100,7 +100,6 @@ function DisplayList() {
             }
             />
         </ListItem>
-            <BottomBar />
         </List>
        
     </Paper>

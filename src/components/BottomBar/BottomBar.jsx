@@ -1,12 +1,13 @@
 import * as React from 'react';
+import { useDispatch } from 'react-redux';
 import Box from '@mui/material/Box';
 import CssBaseline from '@mui/material/CssBaseline';
 import BottomNavigation from '@mui/material/BottomNavigation';
 import BottomNavigationAction from '@mui/material/BottomNavigationAction';
 import RestoreIcon from '@mui/icons-material/Restore';
 import FavoriteIcon from '@mui/icons-material/Favorite';
-import ArchiveIcon from '@mui/icons-material/Archive';
 import Paper from '@mui/material/Paper';
+import LogoutIcon from '@mui/icons-material/Logout';
 
 
 // function refreshMessages() {
@@ -18,6 +19,7 @@ import Paper from '@mui/material/Paper';
 // }
 
 export default function BottomBar() {
+  const dispatch = useDispatch()
   const [value, setValue] = React.useState(0);
   const ref = React.useRef(null);
 
@@ -35,7 +37,7 @@ export default function BottomBar() {
         >
           <BottomNavigationAction label="Recents" icon={<RestoreIcon />} />
           <BottomNavigationAction label="Favorites" icon={<FavoriteIcon />} />
-          <BottomNavigationAction label="Archive" icon={<ArchiveIcon />} />
+          <BottomNavigationAction label="Logout" icon={<LogoutIcon />} onClick={() => dispatch({ type: 'LOGOUT' })}/>
         </BottomNavigation>
       </Paper>
     </Box>
