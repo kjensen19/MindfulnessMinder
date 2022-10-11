@@ -1,4 +1,3 @@
-import RatingBar from "./RatingBar";
 import * as React from 'react';
 import { useState } from 'react'
 import List from '@mui/material/List';
@@ -9,9 +8,12 @@ import ListItemAvatar from '@mui/material/ListItemAvatar';
 import Avatar from '@mui/material/Avatar';
 import Typography from '@mui/material/Typography';
 import Rating from '@mui/material/Rating';
+import { useDispatch } from 'react-redux';
 
 export default function Assessment() {
-    const [newRating, setNewRating] = useState({physical:3, emotional:3, mental:3, psychosocial:3})
+    const dispatch = useDispatch()
+    let ratingBase = {physical:0, emotional:0, mental:0, psychosocial:0}
+    const [newRating, setNewRating] = useState(ratingBase)
 
     const handleChange = e => {
         const { name, value } = e.target;
@@ -22,8 +24,13 @@ export default function Assessment() {
     };
 
     const handleSubmit = () => {
-
         console.log(newRating)
+        dispatch({
+            type: 'SET_RATING',
+            payload: newRating
+        })
+        setNewRating(ratingBase)
+
     }
 
   return (
