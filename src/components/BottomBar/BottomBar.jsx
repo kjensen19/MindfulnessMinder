@@ -36,7 +36,7 @@ export default function BottomBar() {
           }}
         >
           <BottomNavigationAction label="Recents" icon={<RestoreIcon />} />
-          <BottomNavigationAction label="Favorites" icon={<FavoriteIcon />} />
+          <BottomNavigationAction label="Favorites" icon={<FavoriteIcon />} onClick={() => dispatch({type: 'FETCH_EXERCISE'})}/>
           <BottomNavigationAction label="Logout" icon={<LogoutIcon />} onClick={() => dispatch({ type: 'LOGOUT' })}/>
         </BottomNavigation>
       </Paper>

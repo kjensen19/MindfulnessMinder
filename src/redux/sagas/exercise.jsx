@@ -4,8 +4,9 @@ import { put, takeLatest } from 'redux-saga/effects';
 // worker Saga: will be fired on "FETCH_USER" actions
 function* fetchExercise() {
   try {
-    yield axios.get('/api/exercise');
-    yield put({type: 'SET_EXERCISE', payload: response.data})
+    const response = yield axios.get('/api/exercise');
+    console.log('response?', response)
+    yield put({type: 'SET_EXERCISE', payload: response})
 
 
     // now that the session has given us a user object

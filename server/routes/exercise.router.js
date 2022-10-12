@@ -12,7 +12,8 @@ router.get('/', (req, res) => {
   `
   pool.query(queryText)
   .then((dbRes) => {
-    res.send(dbRes)
+    res.send(dbRes.rows)
+    console.log('dbres?', dbRes.rows)
   }).catch((dbErr) => {
     console.log('Error in exercise GET', dbErr)
     res.sendStatus(500)
