@@ -1,4 +1,3 @@
-import RatingBar from "./RatingBar";
 import * as React from 'react';
 import { useState } from 'react'
 import List from '@mui/material/List';
@@ -9,9 +8,12 @@ import ListItemAvatar from '@mui/material/ListItemAvatar';
 import Avatar from '@mui/material/Avatar';
 import Typography from '@mui/material/Typography';
 import Rating from '@mui/material/Rating';
+import { useDispatch } from 'react-redux';
 
 export default function Assessment() {
-    const [newRating, setNewRating] = useState({physical:3, emotional:3, mental:3, psychosocial:3})
+    const dispatch = useDispatch()
+    let ratingBase = {physical:0, emotional:0, mental:0, psychosocial:0}
+    const [newRating, setNewRating] = useState(ratingBase)
 
     const handleChange = e => {
         const { name, value } = e.target;
@@ -22,8 +24,13 @@ export default function Assessment() {
     };
 
     const handleSubmit = () => {
-
         console.log(newRating)
+        dispatch({
+            type: 'POST_RATING',
+            payload: newRating
+        })
+        setNewRating(ratingBase)
+
     }
 
   return (
@@ -39,7 +46,7 @@ export default function Assessment() {
                 variant="body2"
                 color="text.primary"
               >
-                Ali Connors
+                How are you feeling physically?
               </Typography>
               <Rating
                 name='physical'
@@ -50,14 +57,11 @@ export default function Assessment() {
           }
         />
         <ListItemAvatar>
-          <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
+          <Avatar alt={newRating.physical.toString()} src="/static/images/avatar/1.jpg" />
         </ListItemAvatar>
       </ListItem>
       <Divider variant="inset" component="li" />
       <ListItem alignItems="flex-start">
-        <ListItemAvatar>
-          <Avatar alt="Travis Howard" src="/static/images/avatar/2.jpg" />
-        </ListItemAvatar>
         <ListItemText
           primary="Emotional?"
           secondary={
@@ -68,22 +72,22 @@ export default function Assessment() {
                 variant="body2"
                 color="text.primary"
               >
-                to Scott, Alex, Jennifer
+                How are you feeling emotionally?
               </Typography>
-            </React.Fragment>
-          }
-        />
-           <Rating
+              <Rating
                 name='emotional'
                 value={newRating.emotional}
                 onChange={handleChange}
                 />
+            </React.Fragment>
+          }
+        />
+        <ListItemAvatar>
+          <Avatar alt={newRating.emotional.toString()} src="/static/images/avatar/2.jpg" />
+        </ListItemAvatar>
       </ListItem>
       <Divider variant="inset" component="li" />
       <ListItem alignItems="flex-start">
-        <ListItemAvatar>
-          <Avatar alt="Cindy Baker" src="/static/images/avatar/3.jpg" />
-        </ListItemAvatar>
         <ListItemText
           primary="Mental"
           secondary={
@@ -94,22 +98,22 @@ export default function Assessment() {
                 variant="body2"
                 color="text.primary"
               >
-                Sandra Adams
+                How are you feeling mentally?
               </Typography>
-            </React.Fragment>
-          }
-        />
-            <Rating
+              <Rating
                 name='mental'
                 value={newRating.mental}
                 onChange={handleChange}
                 />
+            </React.Fragment>
+          }
+        />
+        <ListItemAvatar>
+          <Avatar alt={newRating.mental.toString()} src="/static/images/avatar/3.jpg" />
+        </ListItemAvatar>
       </ListItem>
       <Divider variant="inset" component="li" />
       <ListItem alignItems="flex-start">
-        <ListItemAvatar>
-          <Avatar alt="Cindy Baker" src="/static/images/avatar/3.jpg" />
-        </ListItemAvatar>
         <ListItemText
           primary="PsychoSocial"
           secondary={
@@ -120,16 +124,19 @@ export default function Assessment() {
                 variant="body2"
                 color="text.primary"
               >
-                Sandra Adams
+                How are you feeling psychosocially?
               </Typography>
-            </React.Fragment>
-          }
-        />
-            <Rating
+              <Rating
                 name='psychosocial'
                 value={newRating.psychosocial}
                 onChange={handleChange}
                 />
+            </React.Fragment>
+          }
+        />
+        <ListItemAvatar>
+          <Avatar alt={newRating.psychosocial.toString()} src="/static/images/avatar/3.jpg" />
+        </ListItemAvatar>
       </ListItem>
       <button type='submit' onClick={handleSubmit}>Submit</button>
     </List>

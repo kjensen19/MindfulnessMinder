@@ -94,7 +94,7 @@ function App() {
               exact
               path="/user"
             >
-              <Assessment />
+              <UserPage />
             </ProtectedRoute>
 
             <ProtectedRoute
