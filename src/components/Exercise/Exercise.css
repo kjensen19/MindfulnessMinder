@@ -1,0 +1,33 @@
+.circleFrame{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+    flex-flow: column;
+}
+
+.circle{
+    width: 5rem;
+    height: 5rem;
+    border-radius: 100%;
+    background-color: chartreuse;
+    animation-name: justBreathe;
+    animation-duration: 16s;
+    animation-timing-function: linear;
+    animation-iteration-count: 4;
+    margin-bottom: 10rem;
+    
+}
+
+@keyframes justBreathe {
+    0% {width: 5rem; height: 5rem}
+    25% {width: 25rem; height: 25rem; background-color: red;}
+    50% {width: 25rem; height: 25rem; background-color: chartreuse;}
+    75% {width: 5rem; height: 5rem;}
+    100% {width: 5rem; height: 5rem; background-color: red;}
+    
+}
+
+
+

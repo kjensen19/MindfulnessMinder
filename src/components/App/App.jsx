@@ -22,6 +22,7 @@ import RegisterPage from '../RegisterPage/RegisterPage';
 import HeaderMenu from '../HeaderMenu/HeaderMenu';
 import BottomBar from '../BottomBar/BottomBar';
 import Assessment from '../Assesment/Assessment';
+import Exercise from '../Exercise/ExerciseFrame';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 
@@ -94,7 +95,7 @@ function App() {
               exact
               path="/user"
             >
-              <UserPage />
+              <Exercise />
             </ProtectedRoute>
 
             <ProtectedRoute
