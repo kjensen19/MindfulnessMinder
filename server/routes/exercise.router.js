@@ -27,4 +27,49 @@ router.post('/', (req, res) => {
   // POST route code here
 });
 
+router.put('/:id', (req, res) => {
+    const idToUpdate = req.params.id
+    const sqlText = `
+    UPDATE "Exercise"
+      SET
+        "Type" = $1,
+        "Duration" = $2
+      WHERE
+        id = $3`
+    const sqlValues = [req.body.Type, req.body.Duration, idToUpdate]
+    pool.query(sqlText, sqlValues)
+        .then((result) => {
+            res.sendStatus(200)
+        })
+        .catch((error) => {
+            console.log('Error in PUT', error)
+            res.sendStatus(500)
+        })
+})
+
 module.exports = router;
+
+
+// router.put('/:id', (req, res) => {
+//     // Update this single student
+//     console.log('PUT /students/:id')
+//     console.log(req.body)
+//     const idToUpdate = req.params.id;
+//     const sqlText = `
+//       UPDATE students
+//       SET
+//         github_name = $1, 
+//         skill_level = $2
+//       WHERE
+//         id = $3
+//     `;
+//   const sqlValues = [req.body.githubName, req.body.skillLevel, idToUpdate]
+//     pool.query(sqlText, sqlValues)
+//         .then((result) => {
+//             res.sendStatus(200);
+//         })
+//         .catch((error) => {
+//             console.log(`Error making database query ${sqlText}`, error);
+//             res.sendStatus(500);
+//         });
+// });

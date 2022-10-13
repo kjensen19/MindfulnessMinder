@@ -2,6 +2,7 @@ html,
 body,
 #react-root {
   height: 100%;
+  box-sizing: border-box;
 }
 
 body {
@@ -109,4 +110,9 @@ Form Treatment
 input {
   margin: 5px;
   margin-bottom: 10px;
+}
+
+ul{
+  padding: 0;
+  margin: 0;
 }

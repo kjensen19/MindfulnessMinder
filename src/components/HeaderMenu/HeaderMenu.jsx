@@ -36,7 +36,7 @@ const HeaderMenu = () => {
   };
 
   return (
-    <AppBar position="static">
+    <AppBar position="static" sx={{borderBottom: 16, color:'inherit'}}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <PsychologyIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
@@ -89,7 +89,7 @@ const HeaderMenu = () => {
             >
               {pages.map((page) => (
                 <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
+                  <Typography textAlign="center" component={'span'}>{page}</Typography>
                 </MenuItem>
               ))}
             </Menu>
@@ -149,7 +149,7 @@ const HeaderMenu = () => {
             >
               {settings.map((setting) => (
                 <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">{setting}</Typography>
+                  <Typography textAlign="center" component={'span'}>{setting}</Typography>
                 </MenuItem>
               ))}
             </Menu>

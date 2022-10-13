@@ -14,7 +14,7 @@ function DisplayItem({ exercise }){
     }
 
     return(
-        <>
+        
         <ListItem alignItems="flex-start">
             <ListItemAvatar>
                 <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
@@ -26,7 +26,7 @@ function DisplayItem({ exercise }){
                 <React.Fragment>
                 <Typography
                     sx={{ display: 'inline' }}
-                    component="span"
+                    component={"span"}
                     variant="body2"
                     color="text.primary"
                 >
@@ -39,8 +39,6 @@ function DisplayItem({ exercise }){
             />
             <EditDialog exercise={exercise}/>
         </ListItem>
-        <Divider variant="inset" component="li" />
-        </>
     )
 }
 
