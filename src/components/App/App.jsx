@@ -23,6 +23,7 @@ import HeaderMenu from '../HeaderMenu/HeaderMenu';
 import BottomBar from '../BottomBar/BottomBar';
 import Assessment from '../Assesment/Assessment';
 import Exercise from '../Exercise/ExerciseFrame';
+import ExerciseEnd from '../Exercise/ExerciseEnd';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 
@@ -95,7 +96,7 @@ function App() {
               exact
               path="/user"
             >
-              <Exercise />
+              <ExerciseEnd />
             </ProtectedRoute>
 
             <ProtectedRoute

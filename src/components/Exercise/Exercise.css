@@ -1,4 +1,4 @@
-.circleFrame{
+.circleFrame, .resContainer{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -27,6 +27,64 @@
     75% {width: 5rem; height: 5rem;}
     100% {width: 5rem; height: 5rem; background-color: red;}
     
+}
+
+.resContainer{
+    perspective: 1000;
+    overflow: hidden;
+    position: relative;
+}
+
+#panelOne {
+    position: absolute;
+    background: linear-gradient(0deg, rgb(153, 50, 204, 10%) 0%,  rgb(153, 50, 204) 100%);
+    transform: rotateY(45deg);
+    padding: 0 8px;
+    top: 20;
+    left: 10%;
+    height: 25%;
+    font-size: 40px;
+    z-index: 2;
+    line-height: 1.2;
+    
+}
+
+#panelTwo {
+    position: absolute;
+    background: linear-gradient(0deg, rgb(153, 50, 204, 10%) 0%,  rgb(153, 50, 204) 100%);
+    transform: rotateY(45deg);
+    padding: 0 8px;
+    top: 60;
+    right: 10;
+    height: 30%;
+    font-size: 40px;
+    z-index: 1;
+    line-height: 1.2;
+    bottom: 39%;
+
+}
+
+#imgContainer{
+    z-index: 2;
+    width: 60%;
+    display: block;
+    position: relative;
+    padding-bottom: 50%;
+    top: 10%;
+
+
+
+}
+
+img{
+    display: block;
+    position: absolute;
+    z-index: 10;
+    width: 90%;
+    height:100%;
+    object-fit: cover;
+    opacity: .9;
+
 }
 
 
