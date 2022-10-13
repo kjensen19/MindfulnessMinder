@@ -91,6 +91,13 @@ function EditDialog({ exercise }) {
     setOpen(false)
   }
 
+  const handleDelete = () => {
+    dispatch({
+        type: 'DELETE_EXERCISE',
+        payload: exercise.id
+    })
+  }
+
     const handleChange = e => {
       const { name, value } = e.target;
       setNewExercise(newExercise => ({
@@ -198,6 +205,7 @@ function EditDialog({ exercise }) {
           </DialogContentText>
         </DialogContent>
         <DialogActions>
+          <Button onClick={handleDelete}>DELETE</Button>
           <Button onClick={handleClose}>Cancel</Button>
           <Button onClick={handleSaveClose}>Save</Button>
         </DialogActions>
