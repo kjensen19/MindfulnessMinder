@@ -1,6 +1,5 @@
 import { put, takeLatest } from 'redux-saga/effects';
 import axios from 'axios';
-import { useDispatch } from 'react-redux'
 
 function* UpdateExercise(action) {
     const updatedExercise = action.payload
