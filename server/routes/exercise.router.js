@@ -47,6 +47,11 @@ router.put('/:id', (req, res) => {
         })
 })
 
+router.delete('/:id', (req, res) => {
+    const idToDelete = req.params.id
+    console.log('id?', idToDelete)
+})
+
 module.exports = router;
 
 
