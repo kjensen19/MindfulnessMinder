@@ -42,7 +42,7 @@ export default function Assessment() {
             <React.Fragment>
               <Typography
                 sx={{ display: 'inline' }}
-                component="span"
+                component={"span"}
                 variant="body2"
                 color="text.primary"
               >
@@ -68,7 +68,7 @@ export default function Assessment() {
             <React.Fragment>
               <Typography
                 sx={{ display: 'inline' }}
-                component="span"
+                component={"span"}
                 variant="body2"
                 color="text.primary"
               >
@@ -94,7 +94,7 @@ export default function Assessment() {
             <React.Fragment>
               <Typography
                 sx={{ display: 'inline' }}
-                component="span"
+                component={"span"}
                 variant="body2"
                 color="text.primary"
               >
@@ -120,7 +120,7 @@ export default function Assessment() {
             <React.Fragment>
               <Typography
                 sx={{ display: 'inline' }}
-                component="span"
+                component={"span"}
                 variant="body2"
                 color="text.primary"
               >

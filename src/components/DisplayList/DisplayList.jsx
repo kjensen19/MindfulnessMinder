@@ -24,10 +24,10 @@ function DisplayList() {
     // ))}
 
   return (
-    <Paper variant='outlined' sx={{ maxWidth: 390, maxHeight: 844}} >
+    <Paper elevation={10} sx={{ maxHeight: 844}} >
         <List sx={{ width: '100%', bgcolor: 'background.paper' }}>
         {exercises && exercises.map((exercise) => (
-            <DisplayItem exercise={exercise}/>
+            <DisplayItem exercise={exercise} key={exercise.id} />
         ))}
         </List>
        
