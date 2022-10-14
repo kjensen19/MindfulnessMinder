@@ -13,32 +13,31 @@ function DisplayItem({ exercise }){
    const history = useHistory()
 
     return(
-        
-        <ListItem alignItems="flex-start">
-            <ListItemAvatar>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
-            </ListItemAvatar>
-            
-            <ListItemText
-            primary={exercise.Type}
-            secondary={
-                <React.Fragment>
-                <Typography
-                    sx={{ display: 'inline' }}
-                    component={"span"}
-                    variant="body2"
-                    color="text.primary"
-                >
-                    {exercise.Description}
-                </Typography>
-                {exercise.Duration}
+            <ListItem alignItems="flex-start" >
+                <ListItemAvatar>
+                    <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
+                </ListItemAvatar>
                 
-                </React.Fragment>
-                }
-                onClick={() => history.push(`/exercise/${exercise.id}`)}
-            />
-            <EditDialog exercise={exercise}/>
-        </ListItem>
+                <ListItemText
+                primary={exercise.Type}
+                secondary={
+                    <React.Fragment>
+                    <Typography
+                        sx={{ display: 'inline' }}
+                        component={"span"}
+                        variant="body2"
+                        color="text.primary"
+                    >
+                        {exercise.Description}
+                    </Typography>
+                    {exercise.Duration}
+                    
+                    </React.Fragment>
+                    }
+                    onClick={() => history.push(`/exercise/${exercise.id}`)}
+                />
+                <EditDialog exercise={exercise}/>
+            </ListItem>
     )
 }
 
