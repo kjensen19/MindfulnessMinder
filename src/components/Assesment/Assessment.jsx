@@ -10,6 +10,7 @@ import Typography from '@mui/material/Typography';
 import Rating from '@mui/material/Rating';
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
+import { Button } from '@mui/material';
 
 export default function Assessment() {
     const dispatch = useDispatch()
@@ -141,7 +142,7 @@ export default function Assessment() {
           <Avatar alt={newRating.psychosocial.toString()} src="/static/images/avatar/3.jpg" />
         </ListItemAvatar>
       </ListItem>
-      <button type='submit' onClick={handleSubmit}>Submit</button>
+      <Button type='submit' variant="outlined" color="inherit"  onClick={handleSubmit}>Submit</Button>
     </List>
   );
 }

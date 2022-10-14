@@ -8,6 +8,7 @@ import RestoreIcon from '@mui/icons-material/Restore';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import Paper from '@mui/material/Paper';
 import LogoutIcon from '@mui/icons-material/Logout';
+import { useHistory } from 'react-router-dom';
 
 
 // function refreshMessages() {
@@ -19,6 +20,7 @@ import LogoutIcon from '@mui/icons-material/Logout';
 // }
 
 export default function BottomBar() {
+  const history = useHistory()
   const dispatch = useDispatch()
   const [value, setValue] = React.useState(0);
   const ref = React.useRef(null);
@@ -35,7 +37,7 @@ export default function BottomBar() {
             setValue(newValue);
           }}
         >
-          <BottomNavigationAction label="Recents" icon={<RestoreIcon />} />
+          <BottomNavigationAction label="Recents" icon={<RestoreIcon />} onClick={() => history.push('/user') }/>
           <BottomNavigationAction label="Favorites" icon={<FavoriteIcon />} onClick={() => dispatch({type: 'FETCH_EXERCISE'})}/>
           <BottomNavigationAction label="Logout" icon={<LogoutIcon />} onClick={() => dispatch({ type: 'LOGOUT' })}/>
         </BottomNavigation>

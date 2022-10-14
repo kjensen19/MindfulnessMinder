@@ -26,8 +26,8 @@ function AboutPage() {
           where MM can supplement other well-being apps by providing brief 
           opportunities to focus on healthy practices throughout the day. </p>
       </div>
-      <Button onClick={()=> history.push('/login')}>Login</Button>
-      <Button onClick={()=> history.push('/registration')}>Register</Button>
+      <Button variant="outlined" color="inherit"  onClick={()=> history.push('/login')}>Login</Button>
+      <Button variant="outlined" color="inherit"  onClick={()=> history.push('/registration')}>Register</Button>
     </div>
   );
 }
