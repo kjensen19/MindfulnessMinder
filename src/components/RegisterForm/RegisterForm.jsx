@@ -7,6 +7,7 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
+import './Register.css'
 
 function RegisterForm() {
   const [username, setUsername] = useState('');
@@ -47,11 +48,11 @@ function RegisterForm() {
   return (
     <div>
     <Button variant="outlined" onClick={handleClickOpen}>
-      Open form dialog
+      Click to Register
     </Button>
     <Dialog open={open} onClose={handleClose}>
       <DialogTitle>Subscribe</DialogTitle>
-      <DialogContent>
+      <DialogContent color='primary'>
         <form className="formPanel" onSubmit={registerUser}>
           <h2>Register User</h2>
             {errors.registrationMessage && (
@@ -132,15 +133,12 @@ function RegisterForm() {
             />
             </label>
           </div>
-          <div>
-            <input type='reset'/>
-            <input className="btn" type="submit" name="submit" value="Register" />
-          </div>
+          <Button onClick={handleClose} variant="outlined">Cancel</Button>
+        <Button onClick={handleClose} variant="outlined" name="submit" type="submit">Register</Button>
         </form>
       </DialogContent>
       <DialogActions>
-        <Button onClick={handleClose}>Cancel</Button>
-        <Button onClick={handleClose}>Register</Button>
+     
       </DialogActions>
     </Dialog>
   </div>
