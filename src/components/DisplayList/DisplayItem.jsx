@@ -6,12 +6,11 @@ import Avatar from '@mui/material/Avatar';
 import Typography from '@mui/material/Typography';
 import React from 'react'
 import EditDialog from './EditDialog';
+import { useHistory } from 'react-router'
 
 
 function DisplayItem({ exercise }){
-    function handleClick(){
-        
-    }
+   const history = useHistory()
 
     return(
         
@@ -36,6 +35,7 @@ function DisplayItem({ exercise }){
                 
                 </React.Fragment>
                 }
+                onClick={() => history.push(`/exercise/${exercise.id}`)}
             />
             <EditDialog exercise={exercise}/>
         </ListItem>

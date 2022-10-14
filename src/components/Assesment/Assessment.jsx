@@ -9,9 +9,11 @@ import Avatar from '@mui/material/Avatar';
 import Typography from '@mui/material/Typography';
 import Rating from '@mui/material/Rating';
 import { useDispatch } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 
 export default function Assessment() {
     const dispatch = useDispatch()
+    const history = useHistory()
     let ratingBase = {physical:0, emotional:0, mental:0, psychosocial:0}
     const [newRating, setNewRating] = useState(ratingBase)
 
@@ -30,6 +32,7 @@ export default function Assessment() {
             payload: newRating
         })
         setNewRating(ratingBase)
+        history.push('/info')
 
     }
 

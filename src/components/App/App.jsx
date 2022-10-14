@@ -16,6 +16,7 @@ import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 import AboutPage from '../AboutPage/AboutPage';
 import UserPage from '../UserPage/UserPage';
 import InfoPage from '../InfoPage/InfoPage';
+import Results from '../Assesment/Results';
 import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
@@ -24,6 +25,7 @@ import BottomBar from '../BottomBar/BottomBar';
 import Assessment from '../Assesment/Assessment';
 import Exercise from '../Exercise/ExerciseFrame';
 import ExerciseEnd from '../Exercise/ExerciseEnd';
+import DisplayList from '../DisplayList/DisplayList';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 
@@ -64,6 +66,7 @@ function App() {
   const dispatch = useDispatch();
 
   const user = useSelector(store => store.user);
+  const results = useSelector(store => store.assesment)
 
   useEffect(() => {
     dispatch({ type: 'FETCH_USER' });
@@ -96,7 +99,7 @@ function App() {
               exact
               path="/user"
             >
-              <ExerciseEnd />
+              <UserPage />
             </ProtectedRoute>
 
             <ProtectedRoute
@@ -104,8 +107,22 @@ function App() {
               exact
               path="/info"
             >
-              <InfoPage />
+              {results ?
+              <Results />
+              :
+              <Assessment />
+              }
             </ProtectedRoute>
+            <ProtectedRoute
+              path="/exercise"
+              >
+                <Exercise />
+              </ProtectedRoute>
+              <ProtectedRoute
+                exact path="/exerciseRes"
+              >
+                <ExerciseEnd />
+              </ProtectedRoute>
 
             <Route
               exact
