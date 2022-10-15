@@ -96,6 +96,7 @@ function EditDialog({ exercise }) {
         type: 'DELETE_EXERCISE',
         payload: exercise.id
     })
+    setOpen(false)
   }
 
     const handleChange = e => {

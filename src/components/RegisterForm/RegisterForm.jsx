@@ -115,7 +115,6 @@ function RegisterForm() {
               type="tel"
               name="phone"
               value={phone}
-              pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}"
               required
               onChange={(event) => setPhone(event.target.value)}
             />
