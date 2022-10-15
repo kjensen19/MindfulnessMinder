@@ -6,11 +6,18 @@ const router = express.Router();
  * GET route template
  */
 router.get('/', (req, res) => {
+  console.log('date = ', new Date().getTime())
+  const todayDate = new Date().toISOString();
+
   // GET route code here
   const queryText = `
-  SELECT * FROM "Exercise"
+    INSERT INTO "Test"(server_date)
+    values($1)
   `
-  pool.query(queryText)
+
+  // SELECT * FROM "Exercise"
+
+  pool.query(queryText, [todayDate])
   .then((dbRes) => {
     res.send(dbRes.rows)
     console.log('dbres?', dbRes.rows)
