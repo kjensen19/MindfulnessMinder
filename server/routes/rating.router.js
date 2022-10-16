@@ -6,7 +6,29 @@ const router = express.Router();
  * GET route template
  */
 router.get('/', (req, res) => {
+  console.log('date = ', new Date().getTime())
+  const todayDate = new Date().toISOString();
   // GET route code here
+  const queryText = `
+    SELECT * from "DailyAssesment"
+      WHERE "users_id"=$1
+      AND "date"=cast($2 as date);
+  `
+  const queryVals = [req.user.id, todayDate]
+  pool.query(queryText, queryVals)
+    .then((dbRes) => {
+      if(dbRes.rows.length !== 0){
+        console.log('res.rows', dbRes.rows)
+      res.send(dbRes.rows)
+      }
+      else{
+        res.send(false)
+      }
+    })
+    .catch((err) => {
+      console.log('Error in rating GET', err)
+      res.sendStatus(500)
+    })
 });
 
 /**

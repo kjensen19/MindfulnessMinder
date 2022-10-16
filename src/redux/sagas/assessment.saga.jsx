@@ -15,8 +15,20 @@ function* rating(action) {
   }
 }
 
+function* assesment(){
+  try{
+    const response = yield axios.get('/api/rating')
+    console.log('??? response', response)
+    yield put({type: 'SET_RATING', payload: response.data[0]})
+  } catch(error) {
+    console.log('Error in assesment GET in assesment SAGA', error)
+  }
+
+}
+
 function* ratingSaga() {
   yield takeLatest('POST_RATING', rating);
+  yield takeLatest('SET_USER', assesment)
 }
 
 export default ratingSaga;

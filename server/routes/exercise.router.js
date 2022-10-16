@@ -6,21 +6,16 @@ const router = express.Router();
  * GET route template
  */
 router.get('/', (req, res) => {
-  console.log('date = ', new Date().getTime())
-  const todayDate = new Date().toISOString();
+
 
   // GET route code here
   const queryText = `
-    INSERT INTO "Test"(server_date)
-    values(cast($1 as date))
-  `
+    SELECT * FROM "Exercise"`
 
-  // SELECT * FROM "Exercise"
-
-  pool.query(queryText, [todayDate])
+  pool.query(queryText)
   .then((dbRes) => {
+    console.log('dbres in assesment GET', dbRes.rows)
     res.send(dbRes.rows)
-    console.log('dbres?', dbRes.rows)
   }).catch((dbErr) => {
     console.log('Error in exercise GET', dbErr)
     res.sendStatus(500)

@@ -107,10 +107,10 @@ function App() {
               exact
               path="/info"
             >
-              {results ?
-              <Results />
-              :
+              {results == false ?
               <Assessment />
+              :
+              <Results />
               }
             </ProtectedRoute>
             <ProtectedRoute
