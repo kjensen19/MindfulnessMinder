@@ -12,7 +12,7 @@ router.get('/', (req, res) => {
   // GET route code here
   const queryText = `
     INSERT INTO "Test"(server_date)
-    values($1)
+    values(cast($1 as date))
   `
 
   // SELECT * FROM "Exercise"
