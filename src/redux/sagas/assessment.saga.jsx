@@ -19,7 +19,7 @@ function* assesment(){
   try{
     const response = yield axios.get('/api/rating')
     console.log('??? response', response)
-    yield put({type: 'SET_RATING', payload: response.data[0]})
+    yield put({type: 'SET_RATING', payload: response})
   } catch(error) {
     console.log('Error in assesment GET in assesment SAGA', error)
   }

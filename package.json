@@ -9,6 +9,7 @@
   "dependencies": {
     "@emotion/react": "^11.10.4",
     "@emotion/styled": "^11.10.4",
+    "@google-cloud/local-auth": "^2.1.0",
     "@mui/icons-material": "^5.10.6",
     "@mui/material": "^5.10.8",
     "axios": "^0.21.1",
@@ -17,6 +18,7 @@
     "cookie-session": "^2.0.0",
     "dotenv": "^8.6.0",
     "express": "^4.17.1",
+    "googleapis": "^105.0.0",
     "passport": "^0.4.1",
     "passport-local": "^1.0.0",
     "pg": "^8.5.1",

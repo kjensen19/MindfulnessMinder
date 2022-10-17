@@ -2,7 +2,7 @@ const assessmentReducer = (state = [], action) => {
     switch (action.type) {
       case 'SET_RATING':
         console.log('payload in set_rating?????', action.payload)
-        return action.payload;
+        return action.payload.data;
       case 'UNSET_RATING':
         return {};
       default:

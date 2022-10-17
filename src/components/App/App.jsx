@@ -67,7 +67,7 @@ function App() {
 
   const user = useSelector(store => store.user);
   const results = useSelector(store => store.assesment)
-
+  console.log('Results in App:',results)
   useEffect(() => {
     dispatch({ type: 'FETCH_USER' });
   }, [dispatch]);
@@ -107,10 +107,10 @@ function App() {
               exact
               path="/info"
             >
-              {results == false ?
-              <Assessment />
-              :
+              {results !== false ?
               <Results />
+              :
+              <Assessment /> 
               }
             </ProtectedRoute>
             <ProtectedRoute

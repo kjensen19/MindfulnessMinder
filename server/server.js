@@ -11,6 +11,8 @@ const passport = require('./strategies/user.strategy');
 const userRouter = require('./routes/user.router');
 const ratingRouter = require('./routes/rating.router')
 const exerciseRouter = require('./routes/exercise.router')
+const calendarRouter = require('./routes/gCal.router');
+
 // Body parser middleware
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -26,6 +28,8 @@ app.use(passport.session());
 app.use('/api/user', userRouter);
 app.use('/api/rating', ratingRouter)
 app.use('/api/exercise', exerciseRouter)
+app.use('/api/gCal', calendarRouter)
+
 
 // Serve static files
 app.use(express.static('build'));
