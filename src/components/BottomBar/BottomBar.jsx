@@ -38,8 +38,8 @@ export default function BottomBar() {
           }}
         >
           <BottomNavigationAction label="Recents" icon={<RestoreIcon />} onClick={() => history.push('/user') }/>
-          <BottomNavigationAction label="Favorites" icon={<FavoriteIcon />} onClick={() => dispatch({type: 'FETCH_EXERCISE'})}/>
-          <BottomNavigationAction label="Logout" icon={<LogoutIcon />} onClick={() => dispatch({ type: 'LOGOUT' })}/>
+          <BottomNavigationAction label="Favorites" icon={<FavoriteIcon />} onClick={() => dispatch({type: 'FETCH_GCAL'})}/>
+          <BottomNavigationAction label="Logout" icon={<LogoutIcon />} onClick={() => dispatch({ type: 'ADD_EVENT' })}/>
         </BottomNavigation>
       </Paper>
     </Box>

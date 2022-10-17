@@ -18,8 +18,8 @@ router.get('/', (req, res) => {
   pool.query(queryText, queryVals)
     .then((dbRes) => {
       if(dbRes.rows.length !== 0){
-        console.log('res.rows', dbRes.rows)
-      res.send(dbRes.rows)
+        console.log('res.rows', dbRes.rows[0])
+      res.send(dbRes.rows[0])
       }
       else{
         res.send(false)
