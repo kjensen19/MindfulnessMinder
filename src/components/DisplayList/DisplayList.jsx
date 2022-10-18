@@ -17,11 +17,7 @@ function DisplayList() {
 
     //Need to abstract each exercise to DisplayItem to add Edit/Delete functionality
 
-    // {movies.map((movie) => (
-    //     <Paper elevation={10}>
-    //         <MovieItem movie={movie} />
-    //     </Paper>
-    // ))}
+  
 
   return (
     <Paper elevation={10} sx={{ maxHeight: 844}} >

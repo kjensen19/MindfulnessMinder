@@ -1,9 +1,0 @@
-{"web":{
-    "client_id":"566666089177-dll1lv4m4i14jeso4s5uou874fpctehc.apps.googleusercontent.com",
-    "project_id":"calendarspike-364815",
-    "auth_uri":"https://accounts.google.com/o/oauth2/auth",
-    "token_uri":"https://oauth2.googleapis.com/token",
-    "auth_provider_x509_cert_url":"https://www.googleapis.com/oauth2/v1/certs",
-    "client_secret":"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",
-    "redirect_uris":["http://localhost:3000/oauth2callback","http://localhost:5000","http://localhost:3000"],
-    "javascript_origins":["http://localhost:3000","http://localhost:5000"]}}

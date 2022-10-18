@@ -16,10 +16,10 @@ const SCOPES = ['https://www.googleapis.com/auth/calendar'];
 // created automatically when the authorization flow completes for the first
 // time.
 const TOKEN_PATH = path.join(process.cwd(), 'token.json');
-const CREDENTIALS_PATH = '/Users/kylejensen/Prime/SoloProject/MindfulMoments/oauth2.keys.json';
+const CREDENTIALS_PATH = '/Users/kylejensen/Prime/Solo/MindfulnessMinder/server/oauth2.keys.json';
 
 
-router.get('/', (req, res) => {
+router.post('/', (req, res) => {
 /**
  * Reads previously authorized credentials from the save file.
  *
@@ -74,40 +74,61 @@ router.get('/', (req, res) => {
     }
 
 /**
- * Lists the next 10 events on the user's primary calendar.
+ * add event template
  * @param {google.auth.OAuth2} auth An authorized OAuth2 client.
  */
     function addEvents(auth) {
+
+        const newEvent = {
+            'summary': `${req.body.summary}`,
+            'description': `${req.body.description}`,
+            'start': {
+                'dateTime': `${req.body.startTime}`
+            },
+            'end':{
+                'dateTime' : `${req.body.startTime + 5}`
+            },
+            'attendees' : [
+                {'email': `${req.body.emailAdd}`}
+            ],
+            'reminders': {
+            'useDefault': false,
+            'overrides': [
+                {'method': 'email', 'minutes': 24 * 60},
+                {'method': 'popup', 'minutes': 10},
+            ],
+            },
+        }
  
-        const event = {
-        'summary': 'Make it work!',
-        'description': 'A chance to hear more about Google\'s developer products.',
-        'start': {
-        'dateTime': '2022-10-17T17:00:00-05:00',
-        'timeZone': 'America/Chicago',
-        },
-        'end': {
-        'dateTime': '2022-10-17T18:00:00-05:00',
-        'timeZone': 'America/Chicago',
-        },
-        'attendees': [
-        {'email': 'rjensen113@gmail.com'},
-        {'email': 'kjensen19@gmail.com'},
-        ],
-        'reminders': {
-        'useDefault': false,
-        'overrides': [
-            {'method': 'email', 'minutes': 24 * 60},
-            {'method': 'popup', 'minutes': 10},
-        ],
-        },
-    };
+    //     const event = {
+    //     'summary': 'Make it work!',
+    //     'description': 'A chance to hear more about Google\'s developer products.',
+    //     'start': {
+    //     'dateTime': '2022-10-17T17:00:00-05:00',
+    //     'timeZone': 'America/Chicago',
+    //     },
+    //     'end': {
+    //     'dateTime': '2022-10-17T18:00:00-05:00',
+    //     'timeZone': 'America/Chicago',
+    //     },
+    //     'attendees': [
+    //     {'email': 'rjensen113@gmail.com'},
+    //     {'email': 'kjensen19@gmail.com'},
+    //     ],
+    //     'reminders': {
+    //     'useDefault': false,
+    //     'overrides': [
+    //         {'method': 'email', 'minutes': 24 * 60},
+    //         {'method': 'popup', 'minutes': 10},
+    //     ],
+    //     },
+    // };
 
         calendar.events.insert({
             auth: auth,
             calendarId: 'primary',
-            resource: event,
-        }, function(err, event) {
+            resource: newEvent,
+        }, function(err, newEvent) {
             if (err) {
             console.log('There was an error contacting the Calendar service: ' + err);
             return;

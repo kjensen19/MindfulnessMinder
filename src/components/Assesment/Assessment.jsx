@@ -33,7 +33,7 @@ export default function Assessment() {
             payload: newRating
         })
         setNewRating(ratingBase)
-        // history.push('/info')
+        history.push('/info')
 
     }
 

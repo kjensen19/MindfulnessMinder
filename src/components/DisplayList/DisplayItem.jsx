@@ -8,6 +8,7 @@ import React from 'react'
 import EditDialog from './EditDialog';
 import { useHistory } from 'react-router'
 
+const iconArr = ['/public/image/2.png','/public/image/130.png','/public/image/40.png','/public/image/25.png']
 
 function DisplayItem({ exercise }){
    const history = useHistory()
@@ -15,7 +16,7 @@ function DisplayItem({ exercise }){
     return(
             <ListItem alignItems="flex-start" >
                 <ListItemAvatar>
-                    <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
+                    <Avatar alt="Remy Sharp" src={iconArr[0]} />
                 </ListItemAvatar>
                 
                 <ListItemText

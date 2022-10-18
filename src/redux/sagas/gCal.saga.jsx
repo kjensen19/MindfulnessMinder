@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { put, takeLatest } from 'redux-saga/effects';
+import { useSelector } from 'react-redux'
 
 
 function* fetchGCalendar() {
@@ -30,10 +31,14 @@ function* fetchGCalendar() {
 }
 
 function* addEvent() {
+  const exercises = useSelector(store => store.exercise.data)
+
     try {
         const addedEvent = axios({
             method: 'POST',
-            url: '/api/gCal'
+            url: '/api/gCal',
+            data: exercises
+
         }).then((response) => {
             console.log('EVENT Response in SAGA:', response)
         }).catch((error) => {
