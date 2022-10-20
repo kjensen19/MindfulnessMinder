@@ -30,14 +30,15 @@ function* fetchGCalendar() {
   }
 }
 
-function* addEvent() {
-  const exercises = useSelector(store => store.exercise.data)
-
+function* addEvent(action){
+  
     try {
-        const addedEvent = axios({
+        console.log('AMIHERE???')
+        const addedEvent = yield axios({
             method: 'POST',
             url: '/api/gCal',
-            data: exercises
+            data: action.payload
+
 
         }).then((response) => {
             console.log('EVENT Response in SAGA:', response)

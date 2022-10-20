@@ -19,8 +19,11 @@ const TOKEN_PATH = path.join(process.cwd(), 'token.json');
 const CREDENTIALS_PATH = '/Users/kylejensen/Prime/Solo/MindfulnessMinder/server/oauth2.keys.json';
 
 
+router.get()
+
 router.post('/', (req, res) => {
-/**
+    console.log('HERE???')
+/** 
  * Reads previously authorized credentials from the save file.
  *
  * @return {Promise<OAuth2Client|null>}
@@ -78,10 +81,11 @@ router.post('/', (req, res) => {
  * @param {google.auth.OAuth2} auth An authorized OAuth2 client.
  */
     function addEvents(auth) {
+        console.log('in addEvents')
 
         const newEvent = {
-            'summary': `${req.body.summary}`,
-            'description': `${req.body.description}`,
+            'summary': 'Mindful Moment',
+            'description': `${req.body.type}`,
             'start': {
                 'dateTime': `${req.body.startTime}`
             },
@@ -89,7 +93,7 @@ router.post('/', (req, res) => {
                 'dateTime' : `${req.body.startTime + 5}`
             },
             'attendees' : [
-                {'email': `${req.body.emailAdd}`}
+                {'email': `${req.user.email}`}
             ],
             'reminders': {
             'useDefault': false,
