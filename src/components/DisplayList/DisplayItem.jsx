@@ -16,7 +16,7 @@ function DisplayItem({ exercise }){
     return(
             <ListItem alignItems="flex-start" >
                 <ListItemAvatar>
-                    <Avatar alt="Remy Sharp" src={iconArr[0]} />
+                    <Avatar alt={exercise.Description} src={iconArr[0]} />
                 </ListItemAvatar>
                 
                 <ListItemText

@@ -39,7 +39,7 @@ function RadarChart() {
         datasets: [{
           label: new Date(dayRes.date).toDateString(),
           data: [dayRes.area_one, dayRes.area_two, dayRes.area_three, dayRes.area_four],
-          backgroundColor: 'rgba(255, 99, 132, 0.7)',
+          backgroundColor: 'rgba(255, 99, 132, 1)',
           borderColor: 'rgba(255, 99, 132, 1)'
         }
     ]  

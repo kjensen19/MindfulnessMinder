@@ -38,7 +38,7 @@ export default function Assessment() {
     }
 
   return (
-    <List sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
+    <List sx={{ width: '100%', maxWidth: 390, bgcolor: 'background.paper' }}>
       <ListItem alignItems="flex-start">
         <ListItemText
           primary="Physical?"

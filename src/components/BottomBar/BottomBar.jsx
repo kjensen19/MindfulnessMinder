@@ -37,8 +37,8 @@ export default function BottomBar() {
             setValue(newValue);
           }}
         >
-          <BottomNavigationAction label="Recents" icon={<RestoreIcon />} onClick={() => dispatch({ type: 'ADD_EVENT' })}/>
-          <BottomNavigationAction label="Favorites" icon={<FavoriteIcon />} onClick={() => dispatch({type: 'FETCH_GCAL'})}/>
+          <BottomNavigationAction label="Go Back" icon={<RestoreIcon />} onClick={() => dispatch({ type: 'ADD_EVENT' })}/>
+          <BottomNavigationAction label="Home" icon={<FavoriteIcon />} onClick={() => dispatch({type: 'FETCH_GCAL'})}/>
           <BottomNavigationAction label="Logout" icon={<LogoutIcon />} onClick={() => dispatch({type: 'LOGOUT'})}/>
         </BottomNavigation>
       </Paper>
