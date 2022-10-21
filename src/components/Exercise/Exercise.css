@@ -15,15 +15,15 @@
     animation-name: justBreathe;
     animation-duration: 16s;
     animation-timing-function: linear;
-    animation-iteration-count: 4;
+    animation-iteration-count: 1;
     margin-bottom: 10rem;
     
 }
 
 @keyframes justBreathe {
     0% {width: 5rem; height: 5rem}
-    25% {width: 25rem; height: 25rem; background-color: red;}
-    50% {width: 25rem; height: 25rem; background-color: chartreuse;}
+    25% {width: 24rem; height: 24rem; background-color: red;}
+    50% {width: 24rem; height: 24rem; background-color: chartreuse;}
     75% {width: 5rem; height: 5rem;}
     100% {width: 5rem; height: 5rem; background-color: red;}
     

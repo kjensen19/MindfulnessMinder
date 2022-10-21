@@ -86,20 +86,22 @@ router.post('/', rejectUnauthenticated, (req, res) => {
  * @param {google.auth.OAuth2} auth An authorized OAuth2 client.
  */
     function addEvents(auth) {
-        let eventz = []
         console.log('in addEvents')
         for(let event of req.body){
+            console.log('event=', event)
             const calDate = new Date()
             console.log('cal date', calDate)
 
-            eventz.push({
+            const eventz = ({
                 'summary': 'Mindful Moment',
                 'description': `${event.Type}`,
                 'start': {
-                    'dateTime': `${calDate}`
+                    'dateTime': `2022-10-23T16:00:00-05:00`,
+                    'timeZone': 'America/Chicago',
                 },
                 'end':{
-                    'dateTime' : `Sat Oct 22 2022 22:31:52 GMT-0500`
+                    'dateTime': '2022-10-23T16:30:00-05:00',
+                    'timeZone': 'America/Chicago',
                 },
                 'attendees' : [
                     {'email': `kjensen19@gmail.com`}
@@ -111,8 +113,7 @@ router.post('/', rejectUnauthenticated, (req, res) => {
                     {'method': 'popup', 'minutes': 10},
                 ],
                 },
-        })}
-            console.log('plz?', ...eventz)
+        })
     //     const event = {
     //     'summary': 'Take a break!',
     //     'description': 'A chance to hear more about Google\'s developer products.',
@@ -148,7 +149,7 @@ router.post('/', rejectUnauthenticated, (req, res) => {
                 }
                 console.log('Event created: %s', eventz.htmlLink);
             }
-)
+)}
 
 
 
