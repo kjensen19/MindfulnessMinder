@@ -27,7 +27,6 @@ const CREDENTIALS_PATH = '/Users/kylejensen/Prime/Solo/MindfulnessMinder/server/
 router.post('/', rejectUnauthenticated, (req, res) => {
     console.log('HERE??? req.body=', req.body)
     console.log('HERE req.user', req.user)
-    console.log('date = ', new Date().toDateString())
 
 /** 
  * Reads previously authorized credentials from the save file.
@@ -87,64 +86,71 @@ router.post('/', rejectUnauthenticated, (req, res) => {
  * @param {google.auth.OAuth2} auth An authorized OAuth2 client.
  */
     function addEvents(auth) {
+        let eventz = []
         console.log('in addEvents')
+        for(let event of req.body){
+            const calDate = new Date()
+            console.log('cal date', calDate)
 
-        // const event = {
-        //     'summary': 'Mindful Moment',
-        //     'description': `${req.body.Type}`,
-        //     'start': {
-        //         'dateTime': `${DATE}T${req.body.Duration}:00-05:00`
-        //     },
-        //     'end':{
-        //         'dateTime' : `${DATE}T${req.body.Duration + 5}:00-05:00`
-        //     },
-        //     'attendees' : [
-        //         {'email': `${req.user.email}`}
-        //     ],
-        //     'reminders': {
-        //     'useDefault': false,
-        //     'overrides': [
-        //         {'method': 'email', 'minutes': 24 * 60},
-        //         {'method': 'popup', 'minutes': 10},
-        //     ],
-        //     },
-        // }
- 
-        const event = {
-        'summary': 'Take a break!',
-        'description': 'A chance to hear more about Google\'s developer products.',
-        'start': {
-        'dateTime': '2022-10-21T16:00:00-05:00',
-        'timeZone': 'America/Chicago',
-        },
-        'end': {
-        'dateTime': '2022-10-21T16:30:00-05:00',
-        'timeZone': 'America/Chicago',
-        },
-        'attendees': [
-        {'email': 'rjensen113@gmail.com'},
-        {'email': 'kjensen19@gmail.com'},
-        ],
-        'reminders': {
-        'useDefault': false,
-        'overrides': [
-            {'method': 'email', 'minutes': 24 * 60},
-            {'method': 'popup', 'minutes': 10},
-        ],
-        },
-    };
+            eventz.push({
+                'summary': 'Mindful Moment',
+                'description': `${event.Type}`,
+                'start': {
+                    'dateTime': `${calDate}`
+                },
+                'end':{
+                    'dateTime' : `Sat Oct 22 2022 22:31:52 GMT-0500`
+                },
+                'attendees' : [
+                    {'email': `kjensen19@gmail.com`}
+                ],
+                'reminders': {
+                'useDefault': false,
+                'overrides': [
+                    {'method': 'email', 'minutes': 24 * 60},
+                    {'method': 'popup', 'minutes': 10},
+                ],
+                },
+        })}
+            console.log('plz?', ...eventz)
+    //     const event = {
+    //     'summary': 'Take a break!',
+    //     'description': 'A chance to hear more about Google\'s developer products.',
+    //     'start': {
+    //     'dateTime': '2022-10-21T16:00:00-05:00',
+    //     'timeZone': 'America/Chicago',
+    //     },
+    //     'end': {
+    //     'dateTime': '2022-10-21T16:30:00-05:00',
+    //     'timeZone': 'America/Chicago',
+    //     },
+    //     'attendees': [
+    //     {'email': 'rjensen113@gmail.com'},
+    //     {'email': 'kjensen19@gmail.com'},
+    //     ],
+    //     'reminders': {
+    //     'useDefault': false,
+    //     'overrides': [
+    //         {'method': 'email', 'minutes': 24 * 60},
+    //         {'method': 'popup', 'minutes': 10},
+    //     ],
+    //     },
+    // };
 
-        calendar.events.insert({
-            auth: auth,
-            calendarId: 'primary',
-            resource: event,
-        }, function(err, event) {
-            if (err) {
-            console.log('There was an error contacting the Calendar service: ' + err);
-            return;
+            calendar.events.insert({
+                auth: auth,
+                calendarId: 'primary',
+                resource: eventz,
+            }, function(err, eventz) {
+                if (err) {
+                console.log('There was an error contacting the Calendar service: ' + err);
+                return;
+                }
+                console.log('Event created: %s', eventz.htmlLink);
             }
-            console.log('Event created: %s', event.htmlLink);
-});
+)
+
+
 
 
 
@@ -153,10 +159,11 @@ router.post('/', rejectUnauthenticated, (req, res) => {
 
 
 }
+
+
 authorize().then(addEvents).catch(console.error);
 
-res.sendStatus(201)
-});
+res.sendStatus(201)});
 
 
 // 2022-10-17 14:35:04.397636-05
