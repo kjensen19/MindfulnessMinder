@@ -7,6 +7,9 @@ let events =''
 const express = require('express');
 const router = express.Router()
 const calendar = google.calendar('v3');
+const {
+    rejectUnauthenticated,
+  } = require('../modules/authentication-middleware');
 
 
 
@@ -19,10 +22,13 @@ const TOKEN_PATH = path.join(process.cwd(), 'token.json');
 const CREDENTIALS_PATH = '/Users/kylejensen/Prime/Solo/MindfulnessMinder/server/oauth2.keys.json';
 
 
-router.get()
+// router.get()
 
-router.post('/', (req, res) => {
-    console.log('HERE???')
+router.post('/', rejectUnauthenticated, (req, res) => {
+    console.log('HERE??? req.body=', req.body)
+    console.log('HERE req.user', req.user)
+    console.log('date = ', new Date().toDateString())
+
 /** 
  * Reads previously authorized credentials from the save file.
  *
@@ -83,56 +89,56 @@ router.post('/', (req, res) => {
     function addEvents(auth) {
         console.log('in addEvents')
 
-        const newEvent = {
-            'summary': 'Mindful Moment',
-            'description': `${req.body.type}`,
-            'start': {
-                'dateTime': `${req.body.startTime}`
-            },
-            'end':{
-                'dateTime' : `${req.body.startTime + 5}`
-            },
-            'attendees' : [
-                {'email': `${req.user.email}`}
-            ],
-            'reminders': {
-            'useDefault': false,
-            'overrides': [
-                {'method': 'email', 'minutes': 24 * 60},
-                {'method': 'popup', 'minutes': 10},
-            ],
-            },
-        }
+        // const event = {
+        //     'summary': 'Mindful Moment',
+        //     'description': `${req.body.Type}`,
+        //     'start': {
+        //         'dateTime': `${DATE}T${req.body.Duration}:00-05:00`
+        //     },
+        //     'end':{
+        //         'dateTime' : `${DATE}T${req.body.Duration + 5}:00-05:00`
+        //     },
+        //     'attendees' : [
+        //         {'email': `${req.user.email}`}
+        //     ],
+        //     'reminders': {
+        //     'useDefault': false,
+        //     'overrides': [
+        //         {'method': 'email', 'minutes': 24 * 60},
+        //         {'method': 'popup', 'minutes': 10},
+        //     ],
+        //     },
+        // }
  
-    //     const event = {
-    //     'summary': 'Make it work!',
-    //     'description': 'A chance to hear more about Google\'s developer products.',
-    //     'start': {
-    //     'dateTime': '2022-10-17T17:00:00-05:00',
-    //     'timeZone': 'America/Chicago',
-    //     },
-    //     'end': {
-    //     'dateTime': '2022-10-17T18:00:00-05:00',
-    //     'timeZone': 'America/Chicago',
-    //     },
-    //     'attendees': [
-    //     {'email': 'rjensen113@gmail.com'},
-    //     {'email': 'kjensen19@gmail.com'},
-    //     ],
-    //     'reminders': {
-    //     'useDefault': false,
-    //     'overrides': [
-    //         {'method': 'email', 'minutes': 24 * 60},
-    //         {'method': 'popup', 'minutes': 10},
-    //     ],
-    //     },
-    // };
+        const event = {
+        'summary': 'Take a break!',
+        'description': 'A chance to hear more about Google\'s developer products.',
+        'start': {
+        'dateTime': '2022-10-21T16:00:00-05:00',
+        'timeZone': 'America/Chicago',
+        },
+        'end': {
+        'dateTime': '2022-10-21T16:30:00-05:00',
+        'timeZone': 'America/Chicago',
+        },
+        'attendees': [
+        {'email': 'rjensen113@gmail.com'},
+        {'email': 'kjensen19@gmail.com'},
+        ],
+        'reminders': {
+        'useDefault': false,
+        'overrides': [
+            {'method': 'email', 'minutes': 24 * 60},
+            {'method': 'popup', 'minutes': 10},
+        ],
+        },
+    };
 
         calendar.events.insert({
             auth: auth,
             calendarId: 'primary',
-            resource: newEvent,
-        }, function(err, newEvent) {
+            resource: event,
+        }, function(err, event) {
             if (err) {
             console.log('There was an error contacting the Calendar service: ' + err);
             return;

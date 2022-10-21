@@ -177,29 +177,16 @@ function EditDialog({ exercise }) {
             id: 'uncontrolled-native',
           }}
         >
-          <option value={'short'}>10:30AM</option>
-          <option value={'noon'}>12:30PM</option>
-          <option value={'afternoon'}>2:30PM</option>
-          <option value={'EoD'}>4:30PM</option>
+          <option value={'10:00'}>Morning</option>
+          <option value={'12:00'}>Noon</option>
+          <option value={'2:00'}>Afternoon</option>
+          <option value={'4:00'}>End of Day</option>
         </NativeSelect>
       </FormControl>
       <FormControl >
         <InputLabel variant="standard" htmlFor="uncontrolled-native">
           Time:
         </InputLabel>
-        <NativeSelect
-            onChange={handleChange}
-            value={newExercise.Type}
-            name='Duration'
-            inputProps={{
-            id: 'uncontrolled-native',
-          }}
-        >
-          <option value={'short'}>10:30AM</option>
-          <option value={'noon'}>12:30PM</option>
-          <option value={'afternoon'}>2:30PM</option>
-          <option value={'EoD'}>4:30PM</option>
-        </NativeSelect>
       </FormControl>
     </Box>
 
@@ -216,3 +203,19 @@ function EditDialog({ exercise }) {
 }
 
 export default EditDialog
+
+
+
+{/* <NativeSelect
+onChange={handleChange}
+value={newExercise.Type}
+name='Duration'
+inputProps={{
+id: 'uncontrolled-native',
+}}
+>
+<option value={'short'}>10:30AM</option>
+<option value={'noon'}>12:30PM</option>
+<option value={'afternoon'}>2:30PM</option>
+<option value={'EoD'}>4:30PM</option>
+</NativeSelect> */}

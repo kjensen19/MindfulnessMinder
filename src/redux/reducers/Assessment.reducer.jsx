@@ -1,4 +1,4 @@
-const assessmentReducer = (state = [], action) => {
+const assessmentReducer = (state = false, action) => {
     switch (action.type) {
       case 'SET_RATING':
         console.log('payload in set_rating?????', action.payload)

@@ -42,6 +42,7 @@ function* addEvent(action){
 
         }).then((response) => {
             console.log('EVENT Response in SAGA:', response)
+            
         }).catch((error) => {
             console.log('ERROR ADDING EVENT', error)
         })

@@ -1,11 +1,14 @@
 const express = require('express');
 const pool = require('../modules/pool');
 const router = express.Router();
+const {
+  rejectUnauthenticated,
+} = require('../modules/authentication-middleware');
 
 /**
  * GET route template
  */
-router.get('/', (req, res) => {
+router.get('/', rejectUnauthenticated, (req, res) => {
   console.log('date = ', new Date().getTime())
   const todayDate = new Date().toISOString();
   // GET route code here
@@ -34,7 +37,7 @@ router.get('/', (req, res) => {
 /**
  * POST route template
  */
-router.post('/', (req, res) => {
+router.post('/', rejectUnauthenticated, (req, res) => {
     console.log('reqs??? in rating post server', req.body, req.user.id)
     const queryText = `INSERT into "DailyAssesment"(users_id, area_one, area_two, area_three, area_four)
     values($1, $2, $3, $4, $5)

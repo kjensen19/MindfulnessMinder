@@ -14,7 +14,7 @@ import MenuItem from '@mui/material/MenuItem';
 import PsychologyIcon from '@mui/icons-material/Psychology';
 import { useHistory } from 'react-router-dom';
 
-const pages = ['Products', 'Pricing', 'Blog'];
+const pages = ['Task List', 'Exercizes', 'Results'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 const HeaderMenu = () => {
