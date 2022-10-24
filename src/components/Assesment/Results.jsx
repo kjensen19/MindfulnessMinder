@@ -10,10 +10,10 @@ function Results() {
         <div>
             <h1>Results:</h1>
             <ul>
-                <li>Physical stress rating {results.area_one}</li>
-                <li>Emotional stress rating {results.area_two}</li>
-                <li>Mental stress rating {results.area_three}</li>
-                <li>Psychosocial stress rating {results.area_four}</li>
+                <li>Physical stress rating {results.physical}</li>
+                <li>Emotional stress rating {results.emotional}</li>
+                <li>Mental stress rating {results.mental}</li>
+                <li>Psychosocial stress rating {results.psychosocial}</li>
             </ul>
             <Button variant="outlined" color="inherit" onClick={() => history.push('/user')}>Home</Button>
             <RadarChart />

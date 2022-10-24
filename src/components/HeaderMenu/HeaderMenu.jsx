@@ -14,7 +14,7 @@ import MenuItem from '@mui/material/MenuItem';
 import PsychologyIcon from '@mui/icons-material/Psychology';
 import { useHistory } from 'react-router-dom';
 
-const pages = ['Task List', 'Exercizes', 'Results'];
+const pages = ['Task List', 'Exercises', 'Results'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 const HeaderMenu = () => {
@@ -132,7 +132,7 @@ const HeaderMenu = () => {
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+                <Avatar alt="Remy Sharp" src='../image/110.png' />
               </IconButton>
             </Tooltip>
             <Menu

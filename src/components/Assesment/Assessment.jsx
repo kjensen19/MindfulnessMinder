@@ -27,7 +27,7 @@ export default function Assessment() {
     };
 
     const handleSubmit = () => {
-        console.log(newRating)
+        console.log('why not here?', newRating)
         dispatch({
             type: 'POST_RATING',
             payload: newRating
