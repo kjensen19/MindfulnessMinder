@@ -1,6 +1,8 @@
 import { useHistory } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { useEffect } from 'react'
+import { Button } from "@mui/material"
+
 
 function ExerciseEnd() {
     const history = useHistory()
@@ -24,15 +26,15 @@ function ExerciseEnd() {
     //Need some kind of graphic/display here + text
     return(
         <>
-        <button onClick={handleClick}>Home</button>
         <div className="resContainer">
+        <Button color='inherit' variant='outline' className='homeButton' onClick={handleClick}>Home</Button>
             <div id="panelOne">Great Job!</div>
             <div id="panelTwo">Feel Better?</div>
             <div id="imgContainer">
-                <img src="../image/tulips.jpg" />
+                <img src="../image/2.png" />
             </div>
         </div>
-        
+
         </>
     )
 }

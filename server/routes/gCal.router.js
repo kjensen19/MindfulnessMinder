@@ -87,20 +87,19 @@ router.post('/', rejectUnauthenticated, (req, res) => {
  */
     function addEvents(auth) {
         console.log('in addEvents')
-        for(let event of req.body){
-            console.log('event=', event)
+        // for(let event of req.body){
             const calDate = new Date()
             console.log('cal date', calDate)
 
             const eventz = ({
                 'summary': 'Mindful Moment',
-                'description': `${event.Type}`,
+                'description': `Mental`,
                 'start': {
-                    'dateTime': `2022-10-23T16:00:00-05:00`,
+                    'dateTime': `2022-10-24T16:30:00-05:00`,
                     'timeZone': 'America/Chicago',
                 },
                 'end':{
-                    'dateTime': '2022-10-23T16:30:00-05:00',
+                    'dateTime': '2022-10-24T17:00:00-05:00',
                     'timeZone': 'America/Chicago',
                 },
                 'attendees' : [
@@ -159,7 +158,7 @@ router.post('/', rejectUnauthenticated, (req, res) => {
 
 
 
-}
+
 
 
 authorize().then(addEvents).catch(console.error);

@@ -34,11 +34,12 @@ ChartJS.register(
 
 function RadarChart() {
     const dayRes = useSelector(store => store.assesment)
+    console.log('dayRes???', dayRes)
     const data = {
         labels: ['Physical', 'Emotional', 'Mental', 'Psychosocial'],
         datasets: [{
-          label: new Date(dayRes.date).toDateString(),
-          data: [dayRes.area_one, dayRes.area_two, dayRes.area_three, dayRes.area_four],
+          label: new Date().toDateString(),
+          data: [dayRes.physical, dayRes.emotional, dayRes.mental, dayRes.psychosocial],
           backgroundColor: 'rgba(255, 99, 132, 1)',
           borderColor: 'rgba(255, 99, 132, 1)'
         }

@@ -1,3 +1,6 @@
+:root {
+    --main-content:'';
+}
 .circleFrame, .resContainer{
     display: flex;
     align-items: center;
@@ -6,6 +9,8 @@
     height: 100vh;
     flex-flow: column;
 }
+
+
 
 .circle{
     width: 5rem;
@@ -17,14 +22,32 @@
     animation-timing-function: linear;
     animation-iteration-count: 1;
     margin-bottom: 10rem;
+    color: white;
     
+    
+}
+.circle::before{
+    position: absolute;
+    top: 10%;
+    left: 40%;
+    right: 50%;
+    white-space: nowrap;
+    align-self: center;
+    justify-self: center;
+    content: var(--main-content);
+    font-size: 2rem;
+
 }
 
 @keyframes justBreathe {
-    0% {width: 5rem; height: 5rem}
+    0% {width: 5rem; height: 5rem;}
+    1%{--main-content:'*In* '}
     25% {width: 24rem; height: 24rem; background-color: red;}
+    49% { --main-content:'Hold'}
     50% {width: 24rem; height: 24rem; background-color: chartreuse;}
+    51% { --main-content:'Out'}
     75% {width: 5rem; height: 5rem;}
+    99% {--main-content:'Hold'}
     100% {width: 5rem; height: 5rem; background-color: red;}
     
 }
@@ -85,6 +108,9 @@ img{
     object-fit: cover;
     opacity: .9;
 
+}
+.homeButton{
+    top: 40%;
 }
 
 

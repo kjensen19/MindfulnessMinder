@@ -8,21 +8,26 @@ import React from 'react'
 import EditDialog from './EditDialog';
 import { useHistory } from 'react-router'
 
-const iconArr = ['/public/image/2.png','/public/image/130.png','/public/image/40.png','/public/image/25.png']
 
-function DisplayItem({ exercise }){
+const iconArr = ['../image/2.png',"../image/130.png",'../image/25.png','../image/40.png']
+
+function DisplayItem({ exercise, i }){
    const history = useHistory()
 
     return(
             <ListItem alignItems="flex-start" >
                 <ListItemAvatar>
-                    <Avatar alt={exercise.Description} src={iconArr[0]} />
+                    <Avatar alt={exercise.Description} src={iconArr[i]} />
+
                 </ListItemAvatar>
-                
                 <ListItemText
-                primary={exercise.Type}
+                
+                primary={exercise.Type + '  ' +  exercise.Duration
+            }
+
                 secondary={
                     <React.Fragment>
+
                     <Typography
                         sx={{ display: 'inline' }}
                         component={"span"}
@@ -30,15 +35,17 @@ function DisplayItem({ exercise }){
                         color="text.primary"
                     >
                         {exercise.Description}
+
                     </Typography>
-                    {exercise.Duration}
-                    
+
                     </React.Fragment>
+                    
                     }
                     onClick={() => history.push(`/exercise/${exercise.id}`)}
                 />
                 <EditDialog exercise={exercise}/>
             </ListItem>
+
     )
 }
 

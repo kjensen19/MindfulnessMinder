@@ -82,8 +82,8 @@ function DisplayList() {
   return (
     <Paper elevation={10} sx={{ maxHeight: 844}} >
         <List sx={{ width: '100%', bgcolor: 'background.paper' }}>
-        {exercises && exercises.map((exercise) => (
-            <DisplayItem exercise={exercise} key={exercise.id} />
+        {exercises && exercises.map((exercise, i) => (
+            <DisplayItem exercise={exercise} key={exercise.id} i={i}/>
         ))}
         </List>
         <Button onClick={handleClick} color='inherit' variant='outline'>Add to Google Calendar</Button>

@@ -7,7 +7,8 @@ function* rating(action) {
     console.log(ratings)
   try {
     // passes the username and password from the payload to the server
-    yield axios.post('/api/rating', ratings);
+    yield axios.post('/api/rating', ratings)
+    yield put({type: 'SET_RATING', payload: ratings})
 
   } catch (error) {
     console.log('Error with Rating SAGA', error);
@@ -28,7 +29,7 @@ function* assesment(){
 
 function* ratingSaga() {
   yield takeLatest('POST_RATING', rating);
-  yield takeLatest('SET_USER', assesment)
+  yield takeLatest('GET_RATING', assesment)
 }
 
 export default ratingSaga;

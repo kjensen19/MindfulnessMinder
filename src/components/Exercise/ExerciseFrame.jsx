@@ -3,6 +3,8 @@ import { useState, useEffect } from 'react'
 import Stack from '@mui/material/Stack';
 import { useHistory, useParams } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
+import  Button  from '@mui/material/Button'
+
 
 
 function Exercise(){
@@ -30,10 +32,11 @@ function Exercise(){
 
     return(
         <div className='circleFrame'>
+            <h1 className='instructions'></h1>
             <div className="circle" onAnimationEnd={() => {setShowButtons(false)}}></div>
             <Stack direction="row" alignItems="flex-end" >
-                <button className='postEx' onClick={() => setShowButtons(true)}hidden={showButtons}>Repeat</button>
-                <button className='postEx'onClick={()=> history.push('/exerciseRes')} hidden={showButtons}>Complete</button>
+                <Button  className='postEx' onClick={() => setShowButtons(true)}hidden={showButtons}>Repeat</Button>
+                <Button className='postEx'onClick={()=> history.push('/exerciseRes')} hidden={showButtons}>Complete</Button>
             </Stack>
         </div>
     )
