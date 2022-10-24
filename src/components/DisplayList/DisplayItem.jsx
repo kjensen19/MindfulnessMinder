@@ -9,7 +9,7 @@ import EditDialog from './EditDialog';
 import { useHistory } from 'react-router'
 
 
-const iconArr = ['../image/2.png',"../image/130.png",'../image/25.png','../image/40.png']
+const iconArr = ['../image/2.png',"../image/40.png",'../image/25.png','../image/130.png']
 
 function DisplayItem({ exercise, i }){
    const history = useHistory()
