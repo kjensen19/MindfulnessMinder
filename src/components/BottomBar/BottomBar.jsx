@@ -38,9 +38,11 @@ export default function BottomBar() {
           }}
         >
           <BottomNavigationAction label="Go Back" icon={<RestoreIcon />} onClick={() => dispatch({ type: 'ADD_EVENT' })}/>
-          <BottomNavigationAction label="Home" icon={<FavoriteIcon />} onClick={() => dispatch({type: 'FETCH_GCAL'})}/>
-          <BottomNavigationAction label="Logout" icon={<LogoutIcon />} onClick={() => dispatch({type: 'LOGOUT'})}/>
+          <BottomNavigationAction label="Home" icon={<FavoriteIcon />} onClick={() => history.push('/')}/>
+          <BottomNavigationAction label="Logout" icon={<LogoutIcon />} onClick={() => history.push('/about')}/>
         </BottomNavigation>
       </Paper>
     </Box>
   )};
+
+  // dispatch({type: 'FETCH_GCAL'})
