@@ -92,14 +92,14 @@ router.post('/', rejectUnauthenticated, (req, res) => {
             console.log('cal date', calDate)
 
             const eventz = ({
-                'summary': 'Mindful Moment',
+                'summary': 'GRADUATION',
                 'description': `Mental`,
                 'start': {
-                    'dateTime': `2022-10-24T16:30:00-05:00`,
+                    'dateTime': `2022-11-23T11:00:00-05:00`,
                     'timeZone': 'America/Chicago',
                 },
                 'end':{
-                    'dateTime': '2022-10-24T17:00:00-05:00',
+                    'dateTime': '2022-11-23T11:30:00-05:00',
                     'timeZone': 'America/Chicago',
                 },
                 'attendees' : [
